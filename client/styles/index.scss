@@ -1,0 +1,13 @@
+@import "bulma/bulma";
+@import "animate.css/animate.css";
+
+@include touch() {
+  #top-navbar {
+    .navbar-menu {
+      position: fixed;
+      width: 240px;
+      height: 100%;
+      z-index: 1000;
+    }
+  }
+}

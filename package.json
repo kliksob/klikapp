@@ -1,0 +1,41 @@
+{
+  "name": "klikapp",
+  "version": "1.0.0",
+  "description": "Isomorphic Js App",
+  "main": "index.js",
+  "repository": "https://github.com/kliksob/klik-isomorphic-app",
+  "author": "Aris Riswanto",
+  "license": "MIT",
+  "private": false,
+  "scripts": {
+    "serve": "export NODE_ENV=production && node ./index.js",
+    "prod": "export NODE_ENV=production && yarn run concurrently \"yarn:prod-index\" \"yarn:build-client\"",
+    "start": "export NODE_ENV=development && yarn run concurrently \"yarn:dev-index\" \"yarn:watch-client\"",
+    "build-client": "yarn run rimraf -rf ./public/assets && yarn run parcel build ./client/index.js --out-dir ./public/assets --out-file client.js --public-url /assets --no-source-maps --no-autoinstall --no-cache --experimental-scope-hoisting",
+    "dev-index": "node --inspect ./index.js",
+    "prod-index": "node ./index.js",
+    "watch-client": "yarn run rimraf -rf ./public/assets && yarn run parcel watch ./client/index.js --out-dir ./public/assets --out-file client.js --public-url /assets --no-source-maps --no-autoinstall --no-cache"
+  },
+  "dependencies": {
+    "animate.css": "^3.7.0",
+    "bcrypt": "^3.0.5",
+    "body-parser": "^1.18.3",
+    "bulma": "^0.7.4",
+    "express": "^4.16.4",
+    "flat-db": "^3.0.0",
+    "jsdom": "^14.0.0",
+    "mithril": "1.1.6",
+    "mithril-node-render": "^2.3.1",
+    "pretty": "^2.0.0",
+    "stapes": "^1.0.0",
+    "w3c-xmlhttprequest": "^2.1.3",
+    "zepto-modules": "^1.0.1"
+  },
+  "devDependencies": {
+    "chokidar": "^2.0.4",
+    "concurrently": "^4.1.0",
+    "parcel-bundler": "^1.11.0",
+    "rimraf": "^2.6.3",
+    "sass": "^1.17.0"
+  }
+}
